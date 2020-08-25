@@ -99,4 +99,38 @@ public class MatrixUtils
 
 	}
 
+	/**
+	 * 
+	 * @param matrixA to multiply
+	 * @param matrixB to multiply
+	 * @return product of two matrixes
+	 * @throws Exception if matrixes are not of required shapes
+	 */
+	public static int[][] matrixMul(int[][] matrixA, int[][] matrixB) throws Exception
+	{
+
+		if (matrixA[0].length == matrixB.length)
+		{
+			int[][] matrix = new int[matrixA.length][matrixB[0].length];
+			for (int i = 0; i < matrixA.length; i++)
+			{
+				for (int j = 0; j < matrixA[0].length; j++)
+				{
+					for (int k = 0; k < matrixB[0].length; k++)
+					{
+						matrix[i][k] += matrixA[i][j] * matrixB[j][i];
+					}
+
+				}
+			}
+			return matrix;
+
+		}
+		else
+		{
+			throw new Exception();
+		}
+
+	}
+
 }
